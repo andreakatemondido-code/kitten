@@ -1,1051 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Emman - With All My Love</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta
+      name="description"
+      content="A love letter for Emman, written with all the love in the world."
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      :root {
+        --primary: #ff6b9d;
+        --secondary: #ffa502;
+        --light: #fff0f5;
+        --dark: #2c3e50;
+        --text: #333;
+        --white: #ffffff;
+        --shadow-soft: rgba(255, 107, 157, 0.15);
+        --shadow-strong: rgba(255, 107, 157, 0.3);
+      }
 
-        :root {
-            --primary: #ff6b9d;
-            --secondary: #ffa502;
-            --light: #fff0f5;
-            --dark: #2c3e50;
-            --text: #333;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
-            color: var(--text);
-            line-height: 1.8;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        /* Navigation */
+      body {
+        font-family: "Poppins", "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+        color: var(--text);
+        line-height: 1.8;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--primary);
+        font-weight: 700;
+        transition: 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--secondary);
+        transform: translateY(-2px);
+      }
+
+      section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+        animation: fadeIn 0.8s ease-in;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 60px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #fff0f5 100%);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+        animation: float 20s infinite;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+        animation: fadeInDown 1s ease;
+      }
+
+      .hero .subtitle {
+        font-size: 1.3rem;
+        color: #666;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+
+      .hero .heart {
+        display: inline-block;
+        font-size: 3rem;
+        animation: heartbeat 1.3s infinite;
+        margin: 0 1rem;
+      }
+
+      .hero p {
+        font-size: 1.4rem;
+        color: #666;
+        font-weight: 300;
+        animation: fadeInUp 1s ease 0.3s both;
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+
+      .letter,
+      .how-we-met {
+        background: var(--white);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px var(--shadow-soft);
+        line-height: 2;
+        font-size: 1.1rem;
+        color: #444;
+      }
+
+      .letter {
+        border-left: 8px solid var(--primary);
+      }
+
+      .how-we-met {
+        border-left: 8px solid var(--secondary);
+      }
+
+      .letter p,
+      .how-we-met p {
+        margin-bottom: 1.5rem;
+        text-align: justify;
+      }
+
+      .letter .signature {
+        margin-top: 2rem;
+        text-align: right;
+        font-style: italic;
+        font-size: 1.3rem;
+        color: var(--primary);
+      }
+
+      .memory-box {
+        background: #fff0f5;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1.5rem 0;
+        border-left: 5px solid var(--secondary);
+      }
+
+      .favorite-moment {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color: var(--white);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px var(--shadow-strong);
+      }
+
+      .favorite-moment h3 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .favorite-moment p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        aspect-ratio: 1;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-6px);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+        padding: 1rem;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        text-align: center;
+      }
+
+      .gallery-item:hover .gallery-caption {
+        transform: translateY(0);
+      }
+
+      .reasons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .reason-card {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-top: 5px solid var(--primary);
+        text-align: center;
+      }
+
+      .reason-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
+      }
+
+      .reason-card .icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .reason-card h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+      }
+
+      .reason-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .cta {
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+
+      .cta-text {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .cta-subtext {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 35px rgba(255, 107, 157, 0.6);
+      }
+
+      .contact-info {
+        display: inline-block;
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .contact-info p {
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+        color: #333;
+      }
+
+      .contact-info a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-content {
+        background-color: var(--white);
+        margin: 10% auto;
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 420px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+      }
+
+      .modal-content h2 {
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .modal-content p {
+        color: #666;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .modal-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .modal-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: all 0.3s ease;
+      }
+
+      .btn-yes {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        flex: 1;
+      }
+
+      .btn-yes:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+      }
+
+      .btn-no {
+        background: #f0f0f0;
+        color: #333;
+        flex: 1;
+      }
+
+      .btn-no:hover {
+        background: #e0e0e0;
+        transform: translateY(-3px);
+      }
+
+      .response-container {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .response-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 1rem;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .response-text {
+        font-size: 1.2rem;
+        color: var(--primary);
+        font-weight: 700;
+        line-height: 1.7;
+      }
+
+      footer {
+        background: var(--dark);
+        color: var(--white);
+        text-align: center;
+        padding: 2rem;
+        margin-top: 5rem;
+      }
+
+      footer p {
+        margin: 0.5rem 0;
+      }
+
+      .made-with-love {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .sparkle {
+        display: inline-block;
+        animation: sparkle 1.5s ease-in-out infinite;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(30px, -30px); }
+      }
+
+      @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+      }
+
+      @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes sparkle {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
+      @media (max-width: 768px) {
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+          gap: 0.75rem;
+          padding: 0.75rem 1rem;
         }
 
         nav a {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 60px;
-            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #fff0f5 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
-            animation: float 20s infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, -30px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            animation: fadeInDown 1s ease;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .hero .heart {
-            display: inline-block;
-            font-size: 3rem;
-            animation: heartbeat 1.3s infinite;
-            margin: 0 1rem;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+          font-size: 0.9rem;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            animation: fadeInUp 1s ease 0.3s both;
+          font-size: 1.1rem;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            font-size: 2rem;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        /* Letter Section */
-        .letter {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.15);
-            border-left: 8px solid var(--primary);
-            line-height: 2;
-            font-size: 1.15rem;
-            color: #444;
-        }
-
-        .letter p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .letter .signature {
-            margin-top: 2rem;
-            text-align: right;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--primary);
-        }
-
-        /* How We Met Section */
-        .how-we-met {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.15);
-            border-left: 8px solid var(--secondary);
-            line-height: 2;
-            font-size: 1.1rem;
-            color: #444;
-        }
-
-        .how-we-met p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .how-we-met .memory-box {
-            background: #fff0f5;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            border-left: 5px solid var(--secondary);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            cursor: pointer;
-            transition: transform 0.3s;
-            aspect-ratio: 1;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-            text-align: center;
-        }
-
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-
-        /* Favorite Moment */
+        .letter,
+        .how-we-met,
         .favorite-moment {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 20px;
-            margin: 3rem 0;
-            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.3);
-        }
-
-        .favorite-moment h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .favorite-moment p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            text-align: center;
-        }
-
-        /* Why Section */
-        .reasons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .reason-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 5px solid var(--primary);
-            text-align: center;
-        }
-
-        .reason-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.2);
-        }
-
-        .reason-card .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .reason-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .reason-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .cta-text {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .cta-subtext {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(255, 107, 157, 0.6);
-        }
-
-        .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            display: inline-block;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-            color: #333;
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            animation: fadeIn 0.3s ease;
+          padding: 1.5rem;
         }
 
         .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 400px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-content h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .modal-content p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+          margin: 50% auto;
+          max-width: 90%;
         }
 
         .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
+          flex-direction: column;
         }
-
-        .modal-btn {
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .btn-yes {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            flex: 1;
-        }
-
-        .btn-yes:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
-        }
-
-        .btn-no {
-            background: #f0f0f0;
-            color: #333;
-            flex: 1;
-        }
-
-        .btn-no:hover {
-            background: #e0e0e0;
-            transform: translateY(-3px);
-        }
-
-        .response-container {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .response-image {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 1rem;
-            border-radius: 15px;
-            object-fit: cover;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .response-text {
-            font-size: 1.3rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 5rem;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-        }
-
-        .made-with-love {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            nav {
-                gap: 0.5rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .letter, .how-we-met {
-                padding: 1.5rem;
-                font-size: 1rem;
-            }
-
-            .modal-content {
-                margin: 50% auto;
-                max-width: 90%;
-            }
-
-            .modal-buttons {
-                flex-direction: column;
-            }
-        }
-
-        section {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .sparkle {
-            display: inline-block;
-            animation: sparkle 1.5s ease-in-out infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+      }
     </style>
-</head>
-<body>
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#letter">My Letter</a>
-        <a href="#story">Our Story</a>
-        <a href="#memories">Our Memories</a>
-        <a href="#contact">Let's Talk</a>
+  </head>
+  <body>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#letter">My Letter</a>
+      <a href="#story">Our Story</a>
+      <a href="#memories">Our Memories</a>
+      <a href="#contact">Let's Talk</a>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Emman,</h1>
-            <p class="subtitle">I love you so much. I don't think I could ever love someone more than I loved and love you.</p>
-            <div class="heart">❤️</div>
-            <p>You remind me of Lifetime (Reimagined) by Ben and Ben</p>
-        </div>
-        <div class="scroll-indicator">⬇️</div>
-    </section>
-
-    <!-- Letter Section -->
-    <section id="letter">
-        <h2 class="section-title">A Letter To You</h2>
-        <div class="letter">
-            <p>
-                Hi Emman,
-            </p>
-            <p>
-                I'm writing this because I need you to know how I truly feel. Every day without you feels incomplete. I've thought about us so many times, replaying our moments together, remembering the way you made me laugh, the way you held my hand, the way you looked at me like I was your whole world.
-            </p>
-            <p>
-                I've done a lot of thinking during our time apart. I've reflected on what went wrong, on my mistakes, and on how I could be better for you. I want you to know that I'm not the same person I was. I've grown, I've learned, and most importantly, I've realized that what we have is worth fighting for.
-            </p>
-            <p>
-                You're not just someone I loved in the past. You're the person I want in my future. Every plan I imagine, every dream I have—you're there in it. Life feels gray without you, and I miss the colors you brought into my world.
-            </p>
-            <p>
-                I know asking for a second chance takes courage, and I know you have every right to protect your heart. But I'm asking anyway, because what we have is rare, and I can't imagine spending the rest of my life wondering "what if?"
-            </p>
-            <p>
-                Will you give us another chance?
-            </p>
-            <div class="signature">
-                Forever yours,<br>
-                Andrea Kate 💕
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section id="story">
-        <h2 class="section-title">Our Story</h2>
-        <div class="how-we-met">
-            <p>
-                I could still remember the day we met... on an online platform, apparently. You were posing as Ken Rainer and I was Tomie Ure (Barbie Rainer when we got together). I really thought you would be just a passerby and yet you stayed.
-            </p>
-            <p>
-                We got together. Planned our future together. Called for hours and hours. Slept together virtually—you were from Cebu and I'm from Zamboanga del Sur. Miles apart, I'd say. But it wasn't a hindrance to my love for you. I made you my world. You were everything to me that time.
-            </p>
-            <p>
-                Years have passed and we eventually got toxic, or perhaps love just left the picture. We tried to fix it but it just won't work...
-            </p>
-
-            <div class="memory-box">
-                <h4>💭 A Memory That Makes Me Smile</h4>
-                <p>
-                    Remember the time when I got so mad because you barely replied? Turns out your mom confiscated your phone because you were grounded, so you only chatted with me using your smart TV. Hahahaha 😄
-                </p>
-            </div>
-
-            <p style="font-weight: 600; color: var(--primary); font-size: 1.2rem;">
-                Now... 2 years after breaking up, I finally saw you. I finally held your hand. I finally kissed you. I finally felt your warmth and got to embrace you. I only dreamt about that in the past...
-            </p>
-
-            <p>
-                I thought I've fully moved on. I thought two years was enough for me to let go of my first love and first and last love, and yet it wasn't. My love for you is immortal. I will always love you. Always and forever.
-            </p>
-        </div>
-    </section>
-
-    <!-- Favorite Moment -->
-    <section>
-        <div class="favorite-moment">
-            <h3>✨ My Favorite Recent Memory ✨</h3>
-            <p>
-                When you accompanied me to ride the bus from IT Park to my hotel and then when I was about to ride it, you stopped me and kissed me. The bus started to move because of what you did and nearly left me hahaha huhu 😭💕
-            </p>
-        </div>
-    </section>
-
-    <!-- Memories Section -->
-    <section id="memories">
-        <h2 class="section-title">Our Beautiful Moments Together</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffb3d9' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3ENew Year's Countdown%3C/text%3E%3C/svg%3E" alt="Our first memory">
-                <div class="gallery-caption">New Year's Countdown with you 💕</div>
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffa502' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EA Place We Loved%3C/text%3E%3C/svg%3E" alt="Place we loved">
-                <div class="gallery-caption">A place we both loved 🌺</div>
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ff6b9d' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EUs Together%3C/text%3E%3C/svg%3E" alt="Us together">
-                <div class="gallery-caption">Us together, always 👫</div>
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ff7eb3' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3ECoffee Moments%3C/text%3E%3C/svg%3E" alt="Coffee time">
-                <div class="gallery-caption">Our favorite coffee dates ☕</div>
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffb3d9' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EYour Smile%3C/text%3E%3C/svg%3E" alt="Your smile">
-                <div class="gallery-caption">Your smile, my favorite 😊</div>
-            </div>
-            <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffa502' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EEvery Moment%3C/text%3E%3C/svg%3E" alt="Every moment">
-                <div class="gallery-caption">Every moment with you matters 💫</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why We Should Be Together -->
-    <section>
-        <h2 class="section-title">Why We Should Be Together</h2>
-        <div class="reasons">
-            <div class="reason-card">
-                <div class="icon">💫</div>
-                <h3>We Understand Each Other</h3>
-                <p>
-                    No one knows my heart like you do. We have a connection that goes beyond words—a deep understanding that took years to build and can't be replaced.
-                </p>
-            </div>
-            <div class="reason-card">
-                <div class="icon">🌱</div>
-                <h3>We've Grown Apart to Grow Together</h3>
-                <p>
-                    This time away has changed me for the better. I've worked on myself, and I'm ready to be the partner you deserve. I'm a better version of myself now.
-                </p>
-            </div>
-            <div class="reason-card">
-                <div class="icon">🔥</div>
-                <h3>The Love Never Died</h3>
-                <p>
-                    No matter how much time passes, no matter the distance, my feelings for you remain unchanged. I never stopped loving you, not even for a moment.
-                </p>
-            </div>
-            <div class="reason-card">
-                <div class="icon">🌈</div>
-                <h3>We Complete Each Other</h3>
-                <p>
-                    With you, I feel whole. You bring out the best in me, you make me braver, stronger, and more myself. I want that for the rest of my life.
-                </p>
-            </div>
-            <div class="reason-card">
-                <div class="icon">💪</div>
-                <h3>We Can Overcome Anything</h3>
-                <p>
-                    We've already proven that we can survive hard times. Together, there's nothing we can't face. I want to build a fortress of love with you.
-                </p>
-            </div>
-            <div class="reason-card">
-                <div class="icon">👑</div>
-                <h3>You're My Person</h3>
-                <p>
-                    You're not just my love—you're my best friend, my adventure, my home. I want to do life with you, completely and forever.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call To Action -->
-    <section class="cta">
-        <p class="cta-text">So, Emman... what do you say? <span class="sparkle">💕</span></p>
-        <p class="cta-subtext">
-            I'm ready to love you the right way. Let's start over and build something beautiful together.
+      <div class="hero-content">
+        <h1>Emman,</h1>
+        <p class="subtitle">
+          I love you so much. I don't think I could ever love someone more than I loved and love you.
         </p>
-        <button class="btn btn-primary" onclick="openModal()" style="padding: 1rem 3rem; font-size: 1.2rem;">
-            Can we get back together? 💕
-        </button>
+        <div class="heart" aria-label="Heart">❤️</div>
+        <p>You remind me of <strong>Lifetime (Reimagined)</strong> by Ben and Ben.</p>
+      </div>
+      <div class="scroll-indicator" aria-label="Scroll down">⬇️</div>
     </section>
 
-    <!-- Contact Section -->
+    <section id="letter">
+      <h2 class="section-title">A Letter To You</h2>
+      <div class="letter">
+        <p>Hi Emman,</p>
+        <p>
+          I'm writing this because I need you to know how I truly feel. Every day without you feels incomplete. I've thought about us so many times, replaying our moments together, remembering every conversation, every smile, and every little thing that made us feel like we were meant to be.
+        </p>
+        <p>
+          I've done a lot of thinking during our time apart. I've reflected on what went wrong, on my mistakes, and on how I could be better for you. I want you to know that I'm not the same person I was before. I have grown, and I have learned, and I want to be the kind of partner who chooses love with intention, patience, and sincerity.
+        </p>
+        <p>
+          You're not just someone I loved in the past. You're the person I want in my future. Every plan I imagine, every dream I have—you're there in it. Life feels gray without you, and I miss you in ways I can't explain. The space between us has only made my heart more certain about what it wants.
+        </p>
+        <p>
+          I know asking for a second chance takes courage, and I know you have every right to protect your heart. But I'm asking anyway, because what we have is rare, and I can't imagine spending my life without giving us another shot.
+        </p>
+        <p>Will you give us another chance?</p>
+        <div class="signature">
+          Forever yours,<br />
+          Andrea Kate 💕
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <h2 class="section-title">Our Story</h2>
+      <div class="how-we-met">
+        <p>
+          I could still remember the day we met... on an online platform, apparently. You were posing as Ken Rainer and I was Tomie Ure (Barbie Rainer when we got together). I really thought you were just another person in my chat list, but little did I know you would become someone my heart would never really stop choosing.
+        </p>
+        <p>
+          We got together. Planned our future together. Called for hours and hours. Slept together virtually—you were from Cebu and I'm from Zamboanga del Sur. Miles apart, I'd say. But it was never just distance for us—it was longing, hope, and a connection that felt deeper than the miles between us.
+        </p>
+        <p>
+          Years have passed and we eventually got toxic, or perhaps love just left the picture. We tried to fix it, but it just wouldn't work. Maybe we were both healing in different ways, or maybe it was a lesson we had to learn the hard way. But even then, my heart never really stopped loving you.
+        </p>
+
+        <div class="memory-box">
+          <h4>💭 A Memory That Makes Me Smile</h4>
+          <p>
+            Remember the time when I got so mad because you barely replied? Turns out your mom confiscated your phone because you were grounded, so you only chatted with me using your smart TV. We laughed about it later, and that memory still feels like one of the sweetest reminders of how much we loved each other in the simplest ways.
+          </p>
+        </div>
+
+        <p style="font-weight: 600; color: var(--primary); font-size: 1.2rem;">
+          Now... 2 years after breaking up, I finally saw you. I finally held your hand. I finally kissed you. I finally felt your warmth and got to embrace you. I only dreamt about that in the past, and now it actually happened.
+        </p>
+
+        <p>
+          I thought I've fully moved on. I thought two years was enough for me to let go of my first love and first and last love, and yet it wasn't. My love for you is immortal. I will always love you, maybe in a different way now, but still with the same depth and sincerity.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="favorite-moment">
+        <h3>✨ My Favorite Recent Memory ✨</h3>
+        <p>
+          When you accompanied me to ride the bus from IT Park to my hotel and then when I was about to ride it, you stopped me and kissed me. The bus started to move because of what you did, and we both laughed because we were in that moment, with all the world moving around us, but it felt like time had paused just for us. That memory means so much to me.
+        </p>
+      </div>
+    </section>
+
+    <section id="memories">
+      <h2 class="section-title">Our Beautiful Moments Together</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%23ffb3d9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='white' font-family='Arial'%3ENew Year%3C/text%3E%3C/svg%3E" alt="New Year's countdown" />
+          <div class="gallery-caption">New Year's Countdown with you 💕</div>
+        </div>
+        <div class="gallery-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%23ffa502'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='white' font-family='Arial'%3EPlaces%3C/text%3E%3C/svg%3E" alt="Favorite place" />
+          <div class="gallery-caption">A place we both loved 🌺</div>
+        </div>
+        <div class="gallery-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%23ff6b9d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='white' font-family='Arial'%3EUs%3C/text%3E%3C/svg%3E" alt="Us together" />
+          <div class="gallery-caption">Us together, always 👫</div>
+        </div>
+        <div class="gallery-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%23ff7eb3'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='white' font-family='Arial'%3ECoffee%3C/text%3E%3C/svg%3E" alt="Coffee dates" />
+          <div class="gallery-caption">Our favorite coffee dates ☕</div>
+        </div>
+        <div class="gallery-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%23ffb3d9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='white' font-family='Arial'%3ESmile%3C/text%3E%3C/svg%3E" alt="Your smile" />
+          <div class="gallery-caption">Your smile, my favorite 😊</div>
+        </div>
+        <div class="gallery-item">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect width='300' height='300' fill='%23ffa502'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='36' fill='white' font-family='Arial'%3ELove%3C/text%3E%3C/svg%3E" alt="Every moment" />
+          <div class="gallery-caption">Every moment with you matters 💫</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Why We Should Be Together</h2>
+      <div class="reasons">
+        <div class="reason-card">
+          <div class="icon">💫</div>
+          <h3>We Understand Each Other</h3>
+          <p>
+            No one knows my heart like you do. We have a connection that goes beyond words—a deep understanding that took years to build and can't be replaced.
+          </p>
+        </div>
+        <div class="reason-card">
+          <div class="icon">🌱</div>
+          <h3>We've Grown Apart to Grow Together</h3>
+          <p>
+            This time away has changed me for the better. I've worked on myself, and I'm ready to be the partner you deserve. I'm a better version of myself now.
+          </p>
+        </div>
+        <div class="reason-card">
+          <div class="icon">🔥</div>
+          <h3>The Love Never Died</h3>
+          <p>
+            No matter how much time passes, no matter the distance, my feelings for you remain unchanged. I never stopped loving you, not even for a moment.
+          </p>
+        </div>
+        <div class="reason-card">
+          <div class="icon">🌈</div>
+          <h3>We Complete Each Other</h3>
+          <p>
+            With you, I feel whole. You bring out the best in me, you make me braver, stronger, and more myself. I want that for the rest of my life.
+          </p>
+        </div>
+        <div class="reason-card">
+          <div class="icon">💪</div>
+          <h3>We Can Overcome Anything</h3>
+          <p>
+            We've already proven that we can survive hard times. Together, there's nothing we can't face. I want to build a fortress of love with you.
+          </p>
+        </div>
+        <div class="reason-card">
+          <div class="icon">👑</div>
+          <h3>You're My Person</h3>
+          <p>
+            You're not just my love—you're my best friend, my adventure, my home. I want to do life with you, completely and forever.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p class="cta-text">So, Emman... what do you say? <span class="sparkle">💕</span></p>
+      <p class="cta-subtext">
+        I'm ready to love you the right way. Let's start over and build something beautiful together.
+      </p>
+      <button class="btn btn-primary" onclick="openModal()">Can we get back together? 💕</button>
+    </section>
+
     <section id="contact">
-        <h2 class="section-title">Let's Talk</h2>
-        <div style="text-align: center;">
-            <div class="contact-info">
-                <p><strong>Call or Text Me:</strong></p>
-                <p><a href="tel:09482203743">📱 09482203743</a></p>
-                <p style="margin-top: 1.5rem;"><strong>Message Me On Instagram:</strong></p>
-                <p><a href="https://instagram.com/justkitx" target="_blank">@justkitx</a></p>
-            </div>
+      <h2 class="section-title">Let's Talk</h2>
+      <div style="text-align: center;">
+        <div class="contact-info">
+          <p><strong>Call or Text Me:</strong></p>
+          <p><a href="tel:09482203743">📱 09482203743</a></p>
+          <p style="margin-top: 1.5rem;"><strong>Message Me On Instagram:</strong></p>
+          <p><a href="https://instagram.com/justkitx" target="_blank" rel="noreferrer">@justkitx</a></p>
         </div>
+      </div>
     </section>
 
-    <!-- Modal -->
-    <div id="responseModal" class="modal">
-        <div class="modal-content">
-            <h2>Can we get back together? 💕</h2>
-            <p>I need to know what's in your heart, Emman...</p>
-            <div class="modal-buttons">
-                <button class="modal-btn btn-yes" onclick="sayYes()">Yes ✨</button>
-                <button class="modal-btn btn-no" onclick="sayNo()">No 💔</button>
-            </div>
-            <div id="responseBox" class="response-container" style="display: none; margin-top: 2rem;">
-                <img id="responseImage" class="response-image" src="" alt="Response">
-                <div class="response-text" id="responseText"></div>
-            </div>
+    <div id="responseModal" class="modal" aria-modal="true" role="dialog">
+      <div class="modal-content">
+        <h2>Can we get back together? 💕</h2>
+        <p>I need to know what's in your heart, Emman...</p>
+        <div class="modal-buttons">
+          <button class="modal-btn btn-yes" onclick="sayYes()">Yes ✨</button>
+          <button class="modal-btn btn-no" onclick="sayNo()">No 💔</button>
         </div>
+        <div id="responseBox" class="response-container" style="display: none; margin-top: 2rem;">
+          <img id="responseImage" class="response-image" src="" alt="Response preview" />
+          <div class="response-text" id="responseText"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <div class="made-with-love">Made with all my love 💕</div>
-        <p>A message for Emman, from Andrea Kate L. Mondido</p>
-        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.8;">
-            Forever Yours © 2024
-        </p>
+      <div class="made-with-love">Made with all my love 💕</div>
+      <p>A message for Emman, from Andrea Kate L. Mondido</p>
+      <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.8;">
+        Forever Yours © 2024
+      </p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (event) {
+          const href = this.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+
+          event.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
+      });
 
-        // Modal functions
-        function openModal() {
-            document.getElementById('responseModal').style.display = 'block';
-            document.getElementById('responseBox').style.display = 'none';
+      function openModal() {
+        const modal = document.getElementById('responseModal');
+        const responseBox = document.getElementById('responseBox');
+        if (modal) modal.style.display = 'block';
+        if (responseBox) responseBox.style.display = 'none';
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('responseModal');
+        if (modal) modal.style.display = 'none';
+      }
+
+      function sayYes() {
+        const responseBox = document.getElementById('responseBox');
+        const responseImage = document.getElementById('responseImage');
+        const responseText = document.getElementById('responseText');
+
+        if (!responseBox || !responseImage || !responseText) return;
+
+        responseImage.src = createHappyFace();
+        responseText.innerHTML =
+          "🎉 YES! I'm so happy! Let me call you right now! 💕<br><br>I love you so much, Emman!";
+        responseBox.style.display = 'block';
+
+        createConfetti();
+      }
+
+      function sayNo() {
+        const responseBox = document.getElementById('responseBox');
+        const responseImage = document.getElementById('responseImage');
+        const responseText = document.getElementById('responseText');
+
+        if (!responseBox || !responseImage || !responseText) return;
+
+        responseImage.src = createSadFace();
+        responseText.innerHTML =
+          "😭 My heart just broke... But I understand. I'll always love you, Emman. Always. 💔";
+        responseBox.style.display = 'block';
+      }
+
+      function createHappyFace() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 200;
+        canvas.height = 200;
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#FFD700';
+        ctx.fillRect(0, 0, 200, 200);
+
+        ctx.fillStyle = '#FFD700';
+        ctx.beginPath();
+        ctx.arc(100, 100, 90, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = '#FFA500';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.arc(70, 80, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(130, 80, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(100, 110, 30, 0, Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = 'rgba(255, 105, 180, 0.3)';
+        ctx.beginPath();
+        ctx.arc(50, 100, 15, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(150, 100, 15, 0, Math.PI * 2);
+        ctx.fill();
+
+        return canvas.toDataURL();
+      }
+
+      function createSadFace() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 200;
+        canvas.height = 200;
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#E0E0E0';
+        ctx.fillRect(0, 0, 200, 200);
+
+        ctx.fillStyle = '#E0E0E0';
+        ctx.beginPath();
+        ctx.arc(100, 100, 90, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = '#999';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.arc(70, 80, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(130, 80, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(100, 130, 30, Math.PI, 0);
+        ctx.stroke();
+
+        ctx.fillStyle = '#87CEEB';
+        ctx.beginPath();
+        ctx.arc(70, 95, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(130, 95, 5, 0, Math.PI * 2);
+        ctx.fill();
+
+        return canvas.toDataURL();
+      }
+
+      function createConfetti() {
+        const colors = ['#ff6b9d', '#ffa502', '#FFD700', '#ff7eb3'];
+
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement('div');
+          confetti.style.position = 'fixed';
+          confetti.style.width = '10px';
+          confetti.style.height = '10px';
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.left = Math.random() * window.innerWidth + 'px';
+          confetti.style.top = '-10px';
+          confetti.style.borderRadius = '50%';
+          confetti.style.pointerEvents = 'none';
+          confetti.style.zIndex = '9999';
+          confetti.style.opacity = '1';
+          confetti.style.transition = 'transform 2s ease-out, opacity 2s ease-out';
+
+          document.body.appendChild(confetti);
+
+          requestAnimationFrame(() => {
+            confetti.style.transform = `translate(${(Math.random() - 0.5) * 200}px, ${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`;
+            confetti.style.opacity = '0';
+          });
+
+          setTimeout(() => confetti.remove(), 2000);
         }
-
-        function closeModal() {
-            document.getElementById('responseModal').style.display = 'none';
-        }
-
-        // Happy response (Yes)
-        function sayYes() {
-            const responseBox = document.getElementById('responseBox');
-            const responseImage = document.getElementById('responseImage');
-            const responseText = document.getElementById('responseText');
-            
-            // Create happy face emoji
-            const happyCanvas = createHappyFace();
-            responseImage.src = happyCanvas;
-            
-            responseText.innerHTML = "🎉 YES! I'm so happy! Let me call you right now! 💕<br><br>I love you so much, Emman!";
-            
-            responseBox.style.display = 'block';
-            
-            // Confetti effect
-            createConfetti();
-        }
-
-        // Sad response (No)
-        function sayNo() {
-            const responseBox = document.getElementById('responseBox');
-            const responseImage = document.getElementById('responseImage');
-            const responseText = document.getElementById('responseText');
-            
-            // Create sad face emoji
-            const sadCanvas = createSadFace();
-            responseImage.src = sadCanvas;
-            
-            responseText.innerHTML = "😭 My heart just broke... But I understand. I'll always love you, Emman. Always. 💔";
-            
-            responseBox.style.display = 'block';
-        }
-
-        function createHappyFace() {
-            const canvas = document.createElement('canvas');
-            canvas.width = 200;
-            canvas.height = 200;
-            const ctx = canvas.getContext('2d');
-            
-            // Background
-            ctx.fillStyle = '#FFD700';
-            ctx.fillRect(0, 0, 200, 200);
-            
-            // Face circle
-            ctx.fillStyle = '#FFD700';
-            ctx.beginPath();
-            ctx.arc(100, 100, 90, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Border
-            ctx.strokeStyle = '#FFA500';
-            ctx.lineWidth = 3;
-            ctx.stroke();
-            
-            // Left eye
-            ctx.fillStyle = '#000';
-            ctx.beginPath();
-            ctx.arc(70, 80, 8, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Right eye
-            ctx.beginPath();
-            ctx.arc(130, 80, 8, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Happy mouth
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.arc(100, 110, 30, 0, Math.PI);
-            ctx.stroke();
-            
-            // Blush
-            ctx.fillStyle = 'rgba(255, 105, 180, 0.3)';
-            ctx.beginPath();
-            ctx.arc(50, 100, 15, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(150, 100, 15, 0, Math.PI * 2);
-            ctx.fill();
-            
-            return canvas.toDataURL();
-        }
-
-        function createSadFace() {
-            const canvas = document.createElement('canvas');
-            canvas.width = 200;
-            canvas.height = 200;
-            const ctx = canvas.getContext('2d');
-            
-            // Background
-            ctx.fillStyle = '#E0E0E0';
-            ctx.fillRect(0, 0, 200, 200);
-            
-            // Face circle
-            ctx.fillStyle = '#E0E0E0';
-            ctx.beginPath();
-            ctx.arc(100, 100, 90, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Border
-            ctx.strokeStyle = '#999';
-            ctx.lineWidth = 3;
-            ctx.stroke();
-            
-            // Left eye
-            ctx.fillStyle = '#000';
-            ctx.beginPath();
-            ctx.arc(70, 80, 8, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Right eye
-            ctx.beginPath();
-            ctx.arc(130, 80, 8, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Sad mouth
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.arc(100, 130, 30, Math.PI, 0);
-            ctx.stroke();
-            
-            // Tears
-            ctx.fillStyle = '#87CEEB';
-            ctx.beginPath();
-            ctx.arc(70, 95, 5, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(130, 95, 5, 0, Math.PI * 2);
-            ctx.fill();
-            
-            return canvas.toDataURL();
-        }
-
-        function createConfetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'fixed';
-                confetti.style.width = '10px';
-                confetti.style.height = '10px';
-                confetti.style.backgroundColor = ['#ff6b9d', '#ffa502', '#FFD700', '#ff7eb3'][Math.floor(Math.random() * 4)];
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = '-10px';
-                confetti.style.borderRadius = '50%';
-                confetti.style.pointerEvents = 'none';
-                confetti.style.zIndex = '9999';
-                
-                document.body.appendChild(confetti);
-                
-                const duration = Math.random() * 3 + 2;
-                const keyframes = `
-                    @keyframes fall ${Math.random()} {
-                        to {
-                            transform: translateY(${window.innerHeight + 10}px) rotate(360deg);
-                            opacity: 0;
-                        }
-                    }
-                `;
-                
-                const style = document.createElement('style');
-                style.textContent = keyframes;
-                document.head.appendChild(style);
-                
-                confetti.style.animation = `fall ${Math.random()} ${duration}s linear forwards`;
-                
-                setTimeout(() => confetti.remove(), duration * 1000);
-            }
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('responseModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Add scroll animation to elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeIn 0.8s ease-in';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+      }
     </script>
-
-</body>
+  </body>
 </html>
