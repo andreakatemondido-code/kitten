@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Emman</title>
+    <style>
+        :root {
+            --primary-color: #ff758c;
+            --secondary-color: #ff7eb3;
+            --bg-color: #fff9fa;
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .reasons-list {
+            list-style-type: none;
+        }
+
+        .reasons-list li {
+            background: #fff0f3;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 4px;
+            font-size: 1.1rem;
+        }
+
+        .photo-gallery {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .photo-placeholder {
+            width: 200px;
+            height: 200px;
+            background-color: #ffd6e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .footer-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            background: #e05e75;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dear Emman,</h1>
+        <p>There are some things I just needed to say...</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="section">
+            <h2>A Letter to You</h2>
+            <p>
+                Emman, taking the time to build this was my way of showing you how much you still mean to me. We've been through so much apart, but my mind always wanders back to the times we spent together. I've had time to reflect, to grow, and to realize what I truly want.
+            </p>
+            <p>
+                I am writing this because I believe in us. I believe that what we had was rare, and I believe that with the lessons we've learned while apart, we can build something even stronger now.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Why We Should Try Again</h2>
+            <ul class="reasons-list">
+                <li><strong>We Understand Each Other:</strong> No one knows my heart quite like you do, and I'd like to think I know yours. We have a foundation of genuine connection.</li>
+                <li><strong>We Have Grown:</strong> Time apart has taught me so much. I’ve worked on the things that held us back, and I am ready to be the partner you deserve.</li>
+                <li><strong>The Love is Still There:</strong> Try as I might, I can't let go of how I feel about you. Our story feels unfinished to me.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Our Best Memories</h2>
+            <p>Do you remember these moments? (Replace these placeholders with your actual photos in the code!)</p>
+            <div class="photo-gallery">
+                <!-- To add real images, replace the div below with: <img src="your-image.jpg" width="200" alt="Memory"> -->
+                <div class="photo-placeholder">Your favorite photo together</div>
+                <div class="photo-placeholder">A place you both loved</div>
+                <div class="photo-placeholder">A funny/happy memory</div>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <p style="font-size: 1.2rem; margin-bottom: 1rem;">If you are open to it, I would love just to sit down and talk.</p>
+            <!-- Put your email or phone number in the href below -->
+            <a href="mailto:your-email@example.com" class="btn">Let's Talk</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Made with ❤️ just for you, Emman.</p>
+    </footer>
+
+</body>
+</html>
