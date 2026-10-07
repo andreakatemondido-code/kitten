@@ -407,15 +407,35 @@
         padding: 2rem;
         border-radius: 20px;
         text-align: center;
-        max-width: 420px;
+        max-width: 500px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         animation: slideUp 0.3s ease;
+        position: relative;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+        transition: color 0.3s ease;
+      }
+
+      .modal-close:hover {
+        color: var(--primary);
       }
 
       .modal-content h2 {
         color: var(--primary);
         margin-bottom: 1.5rem;
         font-size: 1.8rem;
+        margin-top: 0.5rem;
       }
 
       .modal-content p {
@@ -466,14 +486,17 @@
       .response-container {
         text-align: center;
         margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
       }
 
       .response-image {
         width: 200px;
         height: 200px;
-        margin: 0 auto 1rem;
         border-radius: 15px;
-        object-fit: cover;
+        object-fit: contain;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
       }
 
@@ -562,6 +585,14 @@
       @keyframes sparkle {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.5; }
+      }
+
+      @keyframes scaredBounce {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-50px, -50px); }
+        50% { transform: translate(50px, 50px); }
+        75% { transform: translate(-30px, 30px); }
+        100% { transform: translate(0, 0); }
       }
 
       @media (max-width: 768px) {
@@ -785,13 +816,14 @@
 
     <div id="responseModal" class="modal" aria-modal="true" role="dialog">
       <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
         <h2>Can we get back together? 💕</h2>
         <p>I need to know what's in your heart, Emman...</p>
         <div class="modal-buttons">
           <button class="modal-btn btn-yes" onclick="sayYes()">Yes ✨</button>
           <button class="modal-btn btn-no" id="btnNo" onclick="sayNo()">No 💔</button>
         </div>
-        <div id="responseBox" class="response-container" style="display: none; margin-top: 2rem;">
+        <div id="responseBox" class="response-container" style="display: none;">
           <img id="responseImage" class="response-image" src="" alt="Response preview" />
           <div class="response-text" id="responseText"></div>
         </div>
@@ -842,7 +874,7 @@
         responseImage.src = createHappyFace();
         responseText.innerHTML =
           "🎉 YES! I'm so happy! Let me call you right now! 💕<br><br>I love you so much, Emman!";
-        responseBox.style.display = 'block';
+        responseBox.style.display = 'flex';
 
         createConfetti();
       }
@@ -857,7 +889,7 @@
         responseImage.src = createSadFace();
         responseText.innerHTML =
           "😭 My heart just broke... But I understand. I'll always love you, Emman. Always. 💔";
-        responseBox.style.display = 'block';
+        responseBox.style.display = 'flex';
       }
 
       function createHappyFace() {
@@ -978,17 +1010,55 @@
 
       const btnNo = document.getElementById('btnNo');
       if (btnNo) {
+        let attemptCount = 0;
+        const maxAttempts = 5;
+
         btnNo.addEventListener('mouseover', function() {
-          const randomX = (Math.random() - 0.5) * 260;
-          const randomY = (Math.random() - 0.5) * 120;
-          btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+          if (attemptCount >= maxAttempts) return;
+          
+          attemptCount++;
+          
+          if (attemptCount <= maxAttempts - 1) {
+            // Bounce and move dramatically
+            btnNo.style.animation = 'scaredBounce 0.6s ease-in-out';
+            const randomX = (Math.random() - 0.5) * 300;
+            const randomY = (Math.random() - 0.5) * 200;
+            btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+          } else {
+            // Final attempt - disappear and reappear
+            btnNo.style.opacity = '0';
+            setTimeout(() => {
+              const randomX = (Math.random() - 0.5) * 300;
+              const randomY = (Math.random() - 0.5) * 200;
+              btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+              btnNo.style.opacity = '1';
+            }, 300);
+          }
         });
 
         btnNo.addEventListener('click', function(e) {
           e.preventDefault();
-          const randomX = (Math.random() - 0.5) * 260;
-          const randomY = (Math.random() - 0.5) * 120;
-          btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+          
+          if (attemptCount >= maxAttempts) return;
+          
+          attemptCount++;
+          
+          if (attemptCount <= maxAttempts - 1) {
+            // Bounce and move dramatically
+            btnNo.style.animation = 'scaredBounce 0.6s ease-in-out';
+            const randomX = (Math.random() - 0.5) * 300;
+            const randomY = (Math.random() - 0.5) * 200;
+            btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+          } else {
+            // Final attempt - disappear and reappear
+            btnNo.style.opacity = '0';
+            setTimeout(() => {
+              const randomX = (Math.random() - 0.5) * 300;
+              const randomY = (Math.random() - 0.5) * 200;
+              btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+              btnNo.style.opacity = '1';
+            }, 300);
+          }
         });
       }
     </script>
