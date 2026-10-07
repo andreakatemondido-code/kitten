@@ -455,6 +455,7 @@
         background: #f0f0f0;
         color: #333;
         flex: 1;
+        position: relative;
       }
 
       .btn-no:hover {
@@ -620,16 +621,16 @@
       <div class="letter">
         <p>Hi Emman,</p>
         <p>
-          I'm writing this because I need you to know how I truly feel. Sa matag-adlaw na wala ka, murag kulang kaayo ko. I've thought about us so many times, replaying our moments together, remembering every conversation, every smile, and every little thing that made us feel like we were meant to be.
+          I'm writing this because I need you to know how I truly feel. Sa matag-adlaw na wala ka, murag kulang kaayo ko. I've thought about us so many times, replaying our moments together, reme[...]
         </p>
         <p>
-          I've done a lot of thinking during our time apart. I've reflected on what went wrong, on my mistakes, and on how I could be better for you. I want you to know that I'm not the same person I was before. I have grown, and I have learned, and I want to be the kind of partner who chooses love with intention, patience, and sincerity.
+          I've done a lot of thinking during our time apart. I've reflected on what went wrong, on my mistakes, and on how I could be better for you. I want you to know that I'm not the same pers[...]
         </p>
         <p>
-          You're not just someone I loved in the past. You're the person I want in my future. Every plan I imagine, every dream I have—you're there in it. Life feels gray without you, and I miss you in ways I can't explain. The space between us has only made my heart more certain about what it wants.
+          You're not just someone I loved in the past. You're the person I want in my future. Every plan I imagine, every dream I have—you're there in it. Life feels gray without you, and I mis[...]
         </p>
         <p>
-          I know asking for a second chance takes courage, and I know you have every right to protect your heart. But I'm asking anyway, because what we have is rare, and I can't imagine spending my life without giving us another shot.
+          I know asking for a second chance takes courage, and I know you have every right to protect your heart. But I'm asking anyway, because what we have is rare, and I can't imagine spending[...]
         </p>
         <p>Will you give us another chance?</p>
         <div class="signature">
@@ -643,28 +644,28 @@
       <h2 class="section-title">Our Story</h2>
       <div class="how-we-met">
         <p>
-          I could still remember the day we met... on an online platform, apparently. You were posing as Ken Rainer and I was Tomie Ure (Barbie Rainer when we got together). I really thought you were just another person in my chat list, but little did I know you would become someone my heart would never really stop choosing.
+          I could still remember the day we met... on an online platform, apparently. You were posing as Ken Rainer and I was Tomie Ure (Barbie Rainer when we got together). I really thought you [...]
         </p>
         <p>
-          We got together. Planned our future together. Called for hours and hours. Slept together virtually—you were from Cebu and I'm from Zamboanga del Sur. Miles apart, I'd say. But it was never just distance for us—it was longing, hope, and a connection that felt deeper than the miles between us.
+          We got together. Planned our future together. Called for hours and hours. Slept together virtually—you were from Cebu and I'm from Zamboanga del Sur. Miles apart, I'd say. But it was [...]
         </p>
         <p>
-          Years have passed and we eventually got toxic, or perhaps love just left the picture. We tried to fix it, but it just wouldn't work. Maybe we were both healing in different ways, or maybe it was a lesson we had to learn the hard way. But even then, my heart never really stopped loving you.
+          Years have passed and we eventually got toxic, or perhaps love just left the picture. We tried to fix it, but it just wouldn't work. Maybe we were both healing in different ways, or may[...]
         </p>
 
         <div class="memory-box">
           <h4>💭 A Memory That Makes Me Smile</h4>
           <p>
-            Remember the time when I got so mad because you barely replied? Turns out your mom confiscated your phone because you were grounded, so you only chatted with me using your smart TV. We laughed about it later, and that memory still feels like one of the sweetest reminders of how much we loved each other in the simplest ways.
+            Remember the time when I got so mad because you barely replied? Turns out your mom confiscated your phone because you were grounded, so you only chatted with me using your smart TV. W[...]
           </p>
         </div>
 
         <p style="font-weight: 600; color: var(--primary); font-size: 1.2rem;">
-          Now... 2 years after breaking up, I finally saw you. I finally held your hand. I finally kissed you. I finally felt your warmth and got to embrace you. I only dreamt about that in the past, and now it actually happened.
+          Now... 2 years after breaking up, I finally saw you. I finally held your hand. I finally kissed you. I finally felt your warmth and got to embrace you. I only dreamt about that in the p[...]
         </p>
 
         <p>
-          I thought I've fully moved on. I thought two years was enough for me to let go of my first love and first and last love, and yet it wasn't. My love for you is immortal. I will always love you, maybe in a different way now, but still with the same depth and sincerity.
+          I thought I've fully moved on. I thought two years was enough for me to let go of my first love and first and last love, and yet it wasn't. My love for you is immortal. I will always lo[...]
         </p>
       </div>
     </section>
@@ -673,7 +674,7 @@
       <div class="favorite-moment">
         <h3>✨ My Favorite Recent Memory ✨</h3>
         <p>
-          When you accompanied me to ride the bus from IT Park to my hotel and then when I was about to ride it, you stopped me and kissed me. The bus started to move because of what you did, and we both laughed because we were in that moment, with all the world moving around us, but it felt like time had paused just for us. That memory means so much to me.
+          When you accompanied me to ride the bus from IT Park to my hotel and then when I was about to ride it, you stopped me and kissed me. The bus started to move because of what you did, and[...]
         </p>
       </div>
     </section>
@@ -788,7 +789,7 @@
         <p>I need to know what's in your heart, Emman...</p>
         <div class="modal-buttons">
           <button class="modal-btn btn-yes" onclick="sayYes()">Yes ✨</button>
-          <button class="modal-btn btn-no" onclick="sayNo()">No 💔</button>
+          <button class="modal-btn btn-no" id="btnNo" onclick="sayNo()">No 💔</button>
         </div>
         <div id="responseBox" class="response-container" style="display: none; margin-top: 2rem;">
           <img id="responseImage" class="response-image" src="" alt="Response preview" />
@@ -973,6 +974,24 @@
 
           setTimeout(() => confetti.remove(), 2000);
         }
+      }
+
+      // Make the "No" button flee from the cursor
+      const btnNo = document.getElementById('btnNo');
+      if (btnNo) {
+        btnNo.addEventListener('mouseover', function(e) {
+          const randomX = (Math.random() - 0.5) * 400;
+          const randomY = (Math.random() - 0.5) * 400;
+          btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+
+        // Also handle on click attempt
+        btnNo.addEventListener('click', function(e) {
+          e.preventDefault();
+          const randomX = (Math.random() - 0.5) * 400;
+          const randomY = (Math.random() - 0.5) * 400;
+          btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
       }
     </script>
   </body>
