@@ -548,6 +548,26 @@
             margin-bottom: 1rem;
         }
 
+        /* Music Toggle */
+        .music-toggle {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.4);
+            cursor: pointer;
+            z-index: 1500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -602,6 +622,7 @@
     </style>
 </head>
 <body>
+    <audio id="bgMusic" loop preload="auto" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
 
     <!-- Navigation -->
     <nav>
@@ -631,16 +652,16 @@
                 Hi Emman,
             </p>
             <p>
-                I'm writing this because I need you to know how I truly feel. Every day without you feels incomplete. I've thought about us so many times, replaying our moments together, remembering the way you made me laugh, the way you held my hand, the way you looked at me like I was your whole world.
+                I'm writing this because I need you to know how I truly feel. Every day without you feels incomplete. I've thought about us so many times, replaying our moments together, remembering the way we used to laugh and dream and simply be happy in each other's company.
             </p>
             <p>
-                I've done a lot of thinking during our time apart. I've reflected on what went wrong, on my mistakes, and on how I could be better for you. I want you to know that I'm not the same person I was. I've grown, I've learned, and most importantly, I've realized that what we have is worth fighting for.
+                I've done a lot of thinking during our time apart. I've reflected on what went wrong, on my mistakes, and on how I could be better for you. I want you to know that I'm not the same person I was before. I've grown, I've learned, and I've become more honest with myself about how deeply you matter to me.
             </p>
             <p>
-                You're not just someone I loved in the past. You're the person I want in my future. Every plan I imagine, every dream I have—you're there in it. Life feels gray without you, and I miss the colors you brought into my world.
+                You're not just someone I loved in the past. You're the person I want in my future. Every plan I imagine, every dream I have—you're there in it. Life feels gray without you, and I don't ever want to feel that emptiness again.
             </p>
             <p>
-                I know asking for a second chance takes courage, and I know you have every right to protect your heart. But I'm asking anyway, because what we have is rare, and I can't imagine spending the rest of my life wondering "what if?"
+                I know asking for a second chance takes courage, and I know you have every right to protect your heart. But I'm asking anyway, because what we have is rare, and I can't imagine spending the rest of my life pretending otherwise.
             </p>
             <p>
                 Will you give us another chance?
@@ -657,10 +678,10 @@
         <h2 class="section-title">Our Story</h2>
         <div class="how-we-met">
             <p>
-                I could still remember the day we met... on an online platform, apparently. You were posing as Ken Rainer and I was Tomie Ure (Barbie Rainer when we got together). I really thought you would be just a passerby and yet you stayed.
+                I could still remember the day we met... on an online platform, apparently. You were posing as Ken Rainer and I was Tomie Ure (Barbie Rainer when we got together). I really thought it was just a random conversation at first, but before I knew it, we had become each other's favorite person.
             </p>
             <p>
-                We got together. Planned our future together. Called for hours and hours. Slept together virtually—you were from Cebu and I'm from Zamboanga del Sur. Miles apart, I'd say. But it wasn't a hindrance to my love for you. I made you my world. You were everything to me that time.
+                We got together. Planned our future together. Called for hours and hours. Slept together virtually—you were from Cebu and I'm from Zamboanga del Sur. Miles apart, I'd say. But it never mattered because the feeling was already there. We built something beautiful out of distance, effort, and love.
             </p>
             <p>
                 Years have passed and we eventually got toxic, or perhaps love just left the picture. We tried to fix it but it just won't work...
@@ -669,16 +690,16 @@
             <div class="memory-box">
                 <h4>💭 A Memory That Makes Me Smile</h4>
                 <p>
-                    Remember the time when I got so mad because you barely replied? Turns out your mom confiscated your phone because you were grounded, so you only chatted with me using your smart TV. Hahahaha 😄
+                    Remember the time when I got so mad because you barely replied? Turns out your mom confiscated your phone because you were grounded, so you only chatted with me using your smart TV. That moment was silly and stressful, but it made me realize how much I cared and how much I loved the way you still tried to make me feel special.
                 </p>
             </div>
 
             <p style="font-weight: 600; color: var(--primary); font-size: 1.2rem;">
-                Now... 2 years after breaking up, I finally saw you. I finally held your hand. I finally kissed you. I finally felt your warmth and got to embrace you. I only dreamt about that in the past...
+                Now... 2 years after breaking up, I finally saw you. I finally held your hand. I finally kissed you. I finally felt your warmth and got to embrace you. I only dreamt about that in the past, and now it feels even more real because this time, it was not a dream—it was us, finally meeting again.
             </p>
 
             <p>
-                I thought I've fully moved on. I thought two years was enough for me to let go of my first love and first and last love, and yet it wasn't. My love for you is immortal. I will always love you. Always and forever.
+                I thought I've fully moved on. I thought two years was enough for me to let go of my first love and first and last love, and yet it wasn't. My love for you is immortal. I will always carry a part of you with me no matter where life takes me.
             </p>
         </div>
     </section>
@@ -688,7 +709,7 @@
         <div class="favorite-moment">
             <h3>✨ My Favorite Recent Memory ✨</h3>
             <p>
-                When you accompanied me to ride the bus from IT Park to my hotel and then when I was about to ride it, you stopped me and kissed me. The bus started to move because of what you did and nearly left me hahaha huhu 😭💕
+                When you accompanied me to ride the bus from IT Park to my hotel and then when I was about to ride it, you stopped me and kissed me. The bus started to move because of what you did, and that little moment felt like the world had paused for us. Even now, it remains one of my favorite memories—we were both laughing, nervous, and undeniably in love.
             </p>
         </div>
     </section>
@@ -698,27 +719,27 @@
         <h2 class="section-title">Our Beautiful Moments Together</h2>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffb3d9' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3ENew Year's Countdown%3C/text%3E%3C/svg%3E" alt="Our first memory">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffb3d9' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='26' text-anchor='middle' fill='white' font-family='Arial'%3ENew Year's%3C/text%3E%3C/svg%3E" alt="New Year's Countdown">
                 <div class="gallery-caption">New Year's Countdown with you 💕</div>
             </div>
             <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffa502' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EA Place We Loved%3C/text%3E%3C/svg%3E" alt="Place we loved">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffa502' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='26' text-anchor='middle' fill='white' font-family='Arial'%3EOur Place%3C/text%3E%3C/svg%3E" alt="Our Place">
                 <div class="gallery-caption">A place we both loved 🌺</div>
             </div>
             <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ff6b9d' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EUs Together%3C/text%3E%3C/svg%3E" alt="Us together">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ff6b9d' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='26' text-anchor='middle' fill='white' font-family='Arial'%3EUs%3C/text%3E%3C/svg%3E" alt="Us Together">
                 <div class="gallery-caption">Us together, always 👫</div>
             </div>
             <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ff7eb3' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3ECoffee Moments%3C/text%3E%3C/svg%3E" alt="Coffee time">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ff7eb3' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='26' text-anchor='middle' fill='white' font-family='Arial'%3ECoffee Date%3C/text%3E%3C/svg%3E" alt="Coffee Date">
                 <div class="gallery-caption">Our favorite coffee dates ☕</div>
             </div>
             <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffb3d9' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EYour Smile%3C/text%3E%3C/svg%3E" alt="Your smile">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffb3d9' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='26' text-anchor='middle' fill='white' font-family='Arial'%3ESmile%3C/text%3E%3C/svg%3E" alt="Your Smile">
                 <div class="gallery-caption">Your smile, my favorite 😊</div>
             </div>
             <div class="gallery-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffa502' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='30' fill='white' text-anchor='middle' dy='.3em'%3EEvery Moment%3C/text%3E%3C/svg%3E" alt="Every moment">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffa502' width='300' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' text-anchor='middle' fill='white' font-family='Arial'%3EMoments%3C/text%3E%3C/svg%3E" alt="Every Moment">
                 <div class="gallery-caption">Every moment with you matters 💫</div>
             </div>
         </div>
@@ -822,7 +843,42 @@
         </p>
     </footer>
 
+    <button class="music-toggle" id="musicToggle" aria-label="Play or pause music">♫</button>
+
     <script>
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+
+        function startMusic() {
+            if (!bgMusic) return;
+            bgMusic.volume = 0.22;
+            bgMusic.play().catch(() => {
+                // Browsers block autoplay until a user interacts. The click listener below retries.
+            });
+            if (musicToggle) {
+                musicToggle.textContent = '♫';
+            }
+        }
+
+        function toggleMusic() {
+            if (!bgMusic) return;
+            if (bgMusic.paused) {
+                startMusic();
+            } else {
+                bgMusic.pause();
+                if (musicToggle) {
+                    musicToggle.textContent = '♪';
+                }
+            }
+        }
+
+        if (musicToggle) {
+            musicToggle.addEventListener('click', toggleMusic);
+        }
+
+        window.addEventListener('load', startMusic);
+        document.addEventListener('click', startMusic, { once: true });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -855,16 +911,11 @@
             const responseBox = document.getElementById('responseBox');
             const responseImage = document.getElementById('responseImage');
             const responseText = document.getElementById('responseText');
-            
-            // Create happy face emoji
+
             const happyCanvas = createHappyFace();
             responseImage.src = happyCanvas;
-            
             responseText.innerHTML = "🎉 YES! I'm so happy! Let me call you right now! 💕<br><br>I love you so much, Emman!";
-            
             responseBox.style.display = 'block';
-            
-            // Confetti effect
             createConfetti();
         }
 
@@ -873,14 +924,22 @@
             const responseBox = document.getElementById('responseBox');
             const responseImage = document.getElementById('responseImage');
             const responseText = document.getElementById('responseText');
-            
-            // Create sad face emoji
+
             const sadCanvas = createSadFace();
             responseImage.src = sadCanvas;
-            
             responseText.innerHTML = "😭 My heart just broke... But I understand. I'll always love you, Emman. Always. 💔";
-            
             responseBox.style.display = 'block';
+
+            const email = 'andreamondido51@gmail.com';
+            const subject = encodeURIComponent('Website response: No');
+            const body = encodeURIComponent(
+                'A visitor selected “No” on the “Can we get back together?” page.\n\n' +
+                'Time: ' + new Date().toISOString() + '\n' +
+                'Response: No'
+            );
+
+            const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+            window.open(mailtoLink, '_blank');
         }
 
         function createHappyFace() {
@@ -888,41 +947,34 @@
             canvas.width = 200;
             canvas.height = 200;
             const ctx = canvas.getContext('2d');
-            
-            // Background
+
             ctx.fillStyle = '#FFD700';
             ctx.fillRect(0, 0, 200, 200);
-            
-            // Face circle
+
             ctx.fillStyle = '#FFD700';
             ctx.beginPath();
             ctx.arc(100, 100, 90, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Border
+
             ctx.strokeStyle = '#FFA500';
             ctx.lineWidth = 3;
             ctx.stroke();
-            
-            // Left eye
+
             ctx.fillStyle = '#000';
             ctx.beginPath();
             ctx.arc(70, 80, 8, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Right eye
+
             ctx.beginPath();
             ctx.arc(130, 80, 8, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Happy mouth
+
             ctx.strokeStyle = '#000';
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.arc(100, 110, 30, 0, Math.PI);
             ctx.stroke();
-            
-            // Blush
+
             ctx.fillStyle = 'rgba(255, 105, 180, 0.3)';
             ctx.beginPath();
             ctx.arc(50, 100, 15, 0, Math.PI * 2);
@@ -930,7 +982,7 @@
             ctx.beginPath();
             ctx.arc(150, 100, 15, 0, Math.PI * 2);
             ctx.fill();
-            
+
             return canvas.toDataURL();
         }
 
@@ -939,41 +991,34 @@
             canvas.width = 200;
             canvas.height = 200;
             const ctx = canvas.getContext('2d');
-            
-            // Background
+
             ctx.fillStyle = '#E0E0E0';
             ctx.fillRect(0, 0, 200, 200);
-            
-            // Face circle
+
             ctx.fillStyle = '#E0E0E0';
             ctx.beginPath();
             ctx.arc(100, 100, 90, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Border
+
             ctx.strokeStyle = '#999';
             ctx.lineWidth = 3;
             ctx.stroke();
-            
-            // Left eye
+
             ctx.fillStyle = '#000';
             ctx.beginPath();
             ctx.arc(70, 80, 8, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Right eye
+
             ctx.beginPath();
             ctx.arc(130, 80, 8, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Sad mouth
+
             ctx.strokeStyle = '#000';
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.arc(100, 130, 30, Math.PI, 0);
             ctx.stroke();
-            
-            // Tears
+
             ctx.fillStyle = '#87CEEB';
             ctx.beginPath();
             ctx.arc(70, 95, 5, 0, Math.PI * 2);
@@ -981,7 +1026,7 @@
             ctx.beginPath();
             ctx.arc(130, 95, 5, 0, Math.PI * 2);
             ctx.fill();
-            
+
             return canvas.toDataURL();
         }
 
@@ -997,55 +1042,20 @@
                 confetti.style.borderRadius = '50%';
                 confetti.style.pointerEvents = 'none';
                 confetti.style.zIndex = '9999';
-                
+
                 document.body.appendChild(confetti);
-                
-                const duration = Math.random() * 3 + 2;
-                const keyframes = `
-                    @keyframes fall ${Math.random()} {
-                        to {
-                            transform: translateY(${window.innerHeight + 10}px) rotate(360deg);
-                            opacity: 0;
-                        }
-                    }
-                `;
-                
-                const style = document.createElement('style');
-                style.textContent = keyframes;
-                document.head.appendChild(style);
-                
-                confetti.style.animation = `fall ${Math.random()} ${duration}s linear forwards`;
-                
-                setTimeout(() => confetti.remove(), duration * 1000);
+
+                const animation = confetti.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translate(${(Math.random() - 0.5) * 220}px, ${window.innerHeight + 100}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+                ], {
+                    duration: 2000 + Math.random() * 500,
+                    easing: 'ease-out'
+                });
+
+                animation.onfinish = () => confetti.remove();
             }
         }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('responseModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Add scroll animation to elements
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeIn 0.8s ease-in';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
     </script>
-
 </body>
 </html>
