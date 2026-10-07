@@ -976,20 +976,18 @@
         }
       }
 
-      // Make the "No" button flee from the cursor
       const btnNo = document.getElementById('btnNo');
       if (btnNo) {
-        btnNo.addEventListener('mouseover', function(e) {
-          const randomX = (Math.random() - 0.5) * 400;
-          const randomY = (Math.random() - 0.5) * 400;
+        btnNo.addEventListener('mouseover', function() {
+          const randomX = (Math.random() - 0.5) * 260;
+          const randomY = (Math.random() - 0.5) * 120;
           btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
         });
 
-        // Also handle on click attempt
         btnNo.addEventListener('click', function(e) {
           e.preventDefault();
-          const randomX = (Math.random() - 0.5) * 400;
-          const randomY = (Math.random() - 0.5) * 400;
+          const randomX = (Math.random() - 0.5) * 260;
+          const randomY = (Math.random() - 0.5) * 120;
           btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
         });
       }
